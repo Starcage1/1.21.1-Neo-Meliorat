@@ -23,8 +23,7 @@ public class FletchingRecipeSerializer
 
                             ItemStack.STRICT_CODEC
                                     .fieldOf("result")
-                                    .forGetter(recipe ->
-                                            recipe.getResultItem(null)
+                                    .forGetter(FletchingRecipe::getResult
                                     )
                     ).apply(
                             instance,
@@ -43,14 +42,74 @@ public class FletchingRecipeSerializer
         return CODEC;
     }
 
+    public static final StreamCodec<
+            RegistryFriendlyByteBuf,
+            FletchingRecipe
+            > STREAM_CODEC =
+            StreamCodec.of(
+                    FletchingRecipeSerializer::toNetwork,
+                    FletchingRecipeSerializer::fromNetwork
+            );
+
     @Override
     public StreamCodec<
             RegistryFriendlyByteBuf,
             FletchingRecipe
             > streamCodec() {
+        return STREAM_CODEC;
+    }
 
-        throw new UnsupportedOperationException(
-                "Not implemented yet"
+    private static FletchingRecipe fromNetwork(
+            RegistryFriendlyByteBuf buffer
+    ) {
+
+        int count = buffer.readVarInt();
+
+        NonNullList<Ingredient> ingredients =
+                NonNullList.withSize(
+                        count,
+                        Ingredient.EMPTY
+                );
+
+        ingredients.replaceAll(
+                ignored ->
+                        Ingredient.CONTENTS_STREAM_CODEC.decode(
+                                buffer
+                        )
+        );
+
+        ItemStack result =
+                ItemStack.STREAM_CODEC.decode(
+                        buffer
+                );
+
+        return new FletchingRecipe(
+                ingredients,
+                result
+        );
+    }
+
+    private static void toNetwork(
+            RegistryFriendlyByteBuf buffer,
+            FletchingRecipe recipe
+    ) {
+
+        buffer.writeVarInt(
+                recipe.getIngredients().size()
+        );
+
+        for (Ingredient ingredient :
+                recipe.getIngredients()) {
+
+            Ingredient.CONTENTS_STREAM_CODEC.encode(
+                    buffer,
+                    ingredient
+            );
+        }
+
+        ItemStack.STREAM_CODEC.encode(
+                buffer,
+                recipe.getResult()
         );
     }
 }

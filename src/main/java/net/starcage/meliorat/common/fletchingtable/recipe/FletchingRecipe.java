@@ -25,18 +25,40 @@ public class FletchingRecipe
         this.result = result;
     }
 
+    public ItemStack getResult() {
+        return result;
+    }
+
     @Override
     public boolean matches(
             FletchingRecipeInput input,
             Level level
     ) {
 
-        if (ingredients.size() != 3)
-            return false;
 
-        return ingredients.get(0).test(input.getItem(0))
-                && ingredients.get(1).test(input.getItem(1))
-                && ingredients.get(2).test(input.getItem(2));
+        for (int i = 0; i < 3; i++) {
+
+            Ingredient ingredient =
+                    i < ingredients.size()
+                            ? ingredients.get(i)
+                            : Ingredient.EMPTY;
+            ItemStack stack = input.getItem(i);
+
+            if (ingredient.isEmpty()) {
+
+                if (!stack.isEmpty()) {
+                    return false;
+                }
+
+                continue;
+            }
+
+            if (!ingredient.test(stack)) {
+                return false;
+            }
+        }
+
+        return true;
     }
 
     @Override
