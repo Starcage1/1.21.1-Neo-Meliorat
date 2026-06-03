@@ -15,6 +15,8 @@ public class MelioratConfig {
     public static final ModConfigSpec.BooleanValue ENABLE_TIPPED_ARROWS;
     public static final ModConfigSpec.BooleanValue ENABLE_CAULDRON;
     public static final ModConfigSpec.BooleanValue ENABLE_OCELOT_GUARDIAN;
+    public static final ModConfigSpec.BooleanValue ENABLE_FLETCHING_TABLE;
+    public static final ModConfigSpec.BooleanValue ENABLE_SNIFFER_ARCHAEOLOGY;
 
     // Clock
 
@@ -31,6 +33,10 @@ public class MelioratConfig {
     public static final ModConfigSpec.IntValue HONEY_REQUIRED;
 
     public static final ModConfigSpec.IntValue SLIME_REQUIRED;
+
+    // Sniffer
+
+    public static final ModConfigSpec.DoubleValue SNIFFER_ARCHAEOLOGY_CHANCE;
 
     static {
 
@@ -57,6 +63,18 @@ public class MelioratConfig {
         ENABLE_OCELOT_GUARDIAN =
                 BUILDER.define(
                         "enableOcelotGuardian",
+                        true
+                );
+
+        ENABLE_FLETCHING_TABLE =
+                BUILDER.define(
+                        "enableFletchingTable",
+                        true
+                );
+
+        ENABLE_SNIFFER_ARCHAEOLOGY =
+                BUILDER.define(
+                        "enableSnifferArchaeology",
                         true
                 );
 
@@ -108,6 +126,18 @@ public class MelioratConfig {
                         3,
                         2,
                         3
+                );
+
+        BUILDER.pop();
+
+        BUILDER.push("sniffer");
+
+        SNIFFER_ARCHAEOLOGY_CHANCE =
+                BUILDER.defineInRange(
+                        "snifferArchaeologyChance",
+                        0.20,
+                        0.0,
+                        1.0
                 );
 
         BUILDER.pop();
