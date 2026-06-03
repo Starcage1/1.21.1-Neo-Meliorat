@@ -1,0 +1,23 @@
+{
+	"variants": {
+		"facing=north,time=0": { "model": "meliorat:block/clock/clock_0" },
+		"facing=east,time=0": { "model": "meliorat:block/clock/clock_0", "y": 90 },
+		"facing=south,time=0": { "model": "meliorat:block/clock/clock_0", "y": 180 },
+		"facing=west,time=0": { "model": "meliorat:block/clock/clock_0", "y": 270 },
+
+		"facing=north,time=1": { "model": "meliorat:block/clock/clock_1" },
+		"facing=east,time=1": { "model": "meliorat:block/clock/clock_1", "y": 90 },
+		"facing=south,time=1": { "model": "meliorat:block/clock/clock_1", "y": 180 },
+		"facing=west,time=1": { "model": "meliorat:block/clock/clock_1", "y": 270 },
+
+		"facing=north,time=2": { "model": "meliorat:block/clock/clock_2" },
+		"facing=east,time=2": { "model": "meliorat:block/clock/clock_2", "y": 90 },
+		"facing=south,time=2": { "model": "meliorat:block/clock/clock_2", "y": 180 },
+		"facing=west,time=2": { "model": "meliorat:block/clock/clock_2", "y": 270 },
+
+		"facing=north,time=3": { "model": "meliorat:block/clock/clock_3" },
+		"facing=east,time=3": { "model": "meliorat:block/clock/clock_3", "y": 90 },
+		"facing=south,time=3": { "model": "meliorat:block/clock/clock_3", "y": 180 },
+		"facing=west,time=3": { "model": "meliorat:block/clock/clock_3", "y": 270 }
+	}
+}
