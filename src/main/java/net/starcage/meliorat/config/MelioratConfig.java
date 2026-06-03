@@ -14,6 +14,7 @@ public class MelioratConfig {
     public static final ModConfigSpec.BooleanValue ENABLE_CLOCK;
     public static final ModConfigSpec.BooleanValue ENABLE_TIPPED_ARROWS;
     public static final ModConfigSpec.BooleanValue ENABLE_CAULDRON;
+    public static final ModConfigSpec.BooleanValue ENABLE_OCELOT_GUARDIAN;
 
     // Clock
 
@@ -50,6 +51,12 @@ public class MelioratConfig {
         ENABLE_CAULDRON =
                 BUILDER.define(
                         "enableCauldron",
+                        true
+                );
+
+        ENABLE_OCELOT_GUARDIAN =
+                BUILDER.define(
+                        "enableOcelotGuardian",
                         true
                 );
 
