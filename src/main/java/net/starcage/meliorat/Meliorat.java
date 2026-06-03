@@ -1,8 +1,8 @@
 package net.starcage.meliorat;
 
-import net.minecraft.world.item.CreativeModeTabs;
-import net.starcage.meliorat.registry.ModBlocks;
-import net.starcage.meliorat.registry.ModItems;
+import net.starcage.meliorat.registry.*;
+import net.neoforged.neoforge.client.event.RegisterMenuScreensEvent;
+import net.starcage.meliorat.common.fletchingtable.FletchingScreen;
 import org.slf4j.Logger;
 
 import com.mojang.logging.LogUtils;
@@ -39,6 +39,9 @@ public class Meliorat {
 
         ModItems.register(modEventBus);
         ModBlocks.register(modEventBus);
+        ModMenus.register(modEventBus);
+        ModRecipeTypes.register(modEventBus);
+        ModRecipeSerializers.register(modEventBus);
 
         // Register the item to a creative tab
         modEventBus.addListener(this::addCreative);
@@ -67,6 +70,15 @@ public class Meliorat {
     // You can use EventBusSubscriber to automatically register all static methods in the class annotated with @SubscribeEvent
     @EventBusSubscriber(modid = MOD_ID, value = Dist.CLIENT)
     public static class ClientModEvents {
+
+        @SubscribeEvent
+        public static void registerScreens(RegisterMenuScreensEvent event) {
+            event.register(
+                    ModMenus.FLETCHING_MENU.get(),
+                    FletchingScreen::new
+            );
+        }
+
         @SubscribeEvent
         public static void onClientSetup(FMLClientSetupEvent event) {
 
