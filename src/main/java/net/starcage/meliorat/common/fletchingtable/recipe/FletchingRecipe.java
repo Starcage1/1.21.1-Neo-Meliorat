@@ -26,7 +26,7 @@ public class FletchingRecipe
     }
 
     public ItemStack getResult() {
-        return result;
+        return result.copy();
     }
 
     @Override

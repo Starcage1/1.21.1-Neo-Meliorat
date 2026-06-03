@@ -27,6 +27,7 @@ sourceSets.main.resources {
 }
 
 repositories {
+
     exclusiveContent {
         forRepository {
             maven {
@@ -37,6 +38,11 @@ repositories {
         filter {
             includeGroup "curse.maven"
         }
+    }
+
+    maven {
+        name = "TerraformersMC"
+        url = "https://maven.terraformersmc.com/"
     }
 }
 
@@ -129,6 +135,8 @@ configurations {
 
 dependencies {
     runtimeOnly "curse.maven:catalogue-459701:6926815"
+    compileOnly "dev.emi:emi-neoforge:1.1.24+1.21.1:api"
+    runtimeOnly "dev.emi:emi-neoforge:1.1.24+1.21.1"
 }
 
 // This block of code expands all declared replace properties in the specified resource targets.
