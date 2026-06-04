@@ -12,7 +12,7 @@ displayName="${mod_name}"
 authors="Starcage"
 
 description='''
-Template
+Meliorat is a vanilla friendly mod that expands upon existing features to make the game better (Hopefully).
 '''
 
 [[dependencies.${mod_id}]]
@@ -35,5 +35,5 @@ config="meliorat.mixins.json"
 #[features.${mod_id}]
 #openGLVersion="[3.2,)"
 
-#[modproperties."meliorat"]
-#catalogueImageIcon = "assets/logo.png"
+[modproperties."meliorat"]
+catalogueImageIcon = "assets/logo.png"
