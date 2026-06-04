@@ -4,7 +4,8 @@
   "compatibilityLevel": "JAVA_21",
   "mixins": [
     "DolphinTreasureGoalMixin",
-    "MinecartSpeedMixin"
+    "MinecartSpeedMixin",
+    "CampfireBlockEntityAccessor"
   ],
   "injectors": {
     "defaultRequire": 1
