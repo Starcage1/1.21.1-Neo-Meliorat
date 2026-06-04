@@ -44,6 +44,8 @@ repositories {
         name = "TerraformersMC"
         url = "https://maven.terraformersmc.com/"
     }
+
+    maven { url = "https://api.modrinth.com/maven" }
 }
 
 base {
@@ -137,6 +139,7 @@ dependencies {
     runtimeOnly "curse.maven:catalogue-459701:6926815"
     compileOnly "dev.emi:emi-neoforge:1.1.24+1.21.1:api"
     runtimeOnly "dev.emi:emi-neoforge:1.1.24+1.21.1"
+    implementation "maven.modrinth:jade:15.10.5+neoforge"
 }
 
 // This block of code expands all declared replace properties in the specified resource targets.
