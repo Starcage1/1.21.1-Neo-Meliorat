@@ -3,7 +3,8 @@
   "package": "net.starcage.meliorat.mixin",
   "compatibilityLevel": "JAVA_21",
   "mixins": [
-    "DolphinTreasureGoalMixin"
+    "DolphinTreasureGoalMixin",
+    "MinecartSpeedMixin"
   ],
   "injectors": {
     "defaultRequire": 1

@@ -18,6 +18,7 @@ public class MelioratConfig {
     public static final ModConfigSpec.BooleanValue ENABLE_FLETCHING_TABLE;
     public static final ModConfigSpec.BooleanValue ENABLE_SNIFFER_ARCHAEOLOGY;
     public static final ModConfigSpec.BooleanValue ENABLE_DOLPHIN_GUIDE;
+    public static final ModConfigSpec.BooleanValue ENABLE_MINECART_SPEEDBOOST;
 
     // Clock
 
@@ -38,6 +39,11 @@ public class MelioratConfig {
     // Sniffer
 
     public static final ModConfigSpec.DoubleValue SNIFFER_ARCHAEOLOGY_CHANCE;
+
+    // Minecarts
+
+    public static final ModConfigSpec.IntValue MINECART_SPEED;
+    public static final ModConfigSpec.IntValue FURNACE_MINECART_SPEED;
 
     static {
 
@@ -82,6 +88,12 @@ public class MelioratConfig {
         ENABLE_DOLPHIN_GUIDE =
                 BUILDER.define(
                         "enableDolphinGuide",
+                        true
+                );
+
+        ENABLE_MINECART_SPEEDBOOST =
+                BUILDER.define(
+                        "enableMinecartSpeedboost",
                         true
                 );
 
@@ -145,6 +157,26 @@ public class MelioratConfig {
                         0.20,
                         0.0,
                         1.0
+                );
+
+        BUILDER.pop();
+
+        BUILDER.push("minecart");
+
+        MINECART_SPEED =
+                BUILDER.defineInRange(
+                        "minecartSpeed",
+                        12,
+                        8,
+                        64
+                );
+
+        FURNACE_MINECART_SPEED =
+                BUILDER.defineInRange(
+                        "furnaceMinecartSpeed",
+                        12,
+                        8,
+                        64
                 );
 
         BUILDER.pop();
