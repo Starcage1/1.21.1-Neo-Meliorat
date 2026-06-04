@@ -17,6 +17,7 @@ public class MelioratConfig {
     public static final ModConfigSpec.BooleanValue ENABLE_OCELOT_GUARDIAN;
     public static final ModConfigSpec.BooleanValue ENABLE_FLETCHING_TABLE;
     public static final ModConfigSpec.BooleanValue ENABLE_SNIFFER_ARCHAEOLOGY;
+    public static final ModConfigSpec.BooleanValue ENABLE_DOLPHIN_GUIDE;
 
     // Clock
 
@@ -75,6 +76,12 @@ public class MelioratConfig {
         ENABLE_SNIFFER_ARCHAEOLOGY =
                 BUILDER.define(
                         "enableSnifferArchaeology",
+                        true
+                );
+
+        ENABLE_DOLPHIN_GUIDE =
+                BUILDER.define(
+                        "enableDolphinGuide",
                         true
                 );
 
