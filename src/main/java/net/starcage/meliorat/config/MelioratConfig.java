@@ -20,6 +20,8 @@ public class MelioratConfig {
     public static final ModConfigSpec.BooleanValue ENABLE_DOLPHIN_GUIDE;
     public static final ModConfigSpec.BooleanValue ENABLE_MINECART_SPEEDBOOST;
     public static final ModConfigSpec.BooleanValue ENABLE_WOODEN_TOOLS_IMPROVEMENTS;
+    public static final ModConfigSpec.BooleanValue ENABLE_ITEM_RENAMING;
+    public static final ModConfigSpec.BooleanValue ENABLE_BEETROOT_SOUP;
 
     // Clock
 
@@ -92,6 +94,14 @@ public class MelioratConfig {
         ENABLE_WOODEN_TOOLS_IMPROVEMENTS = BUILDER
                 .comment("Enables wooden tool improvements, such as bonus log drops, compost chances, and campfire cooking progress boosts.")
                 .define("enableWoodenToolsImprovements", true);
+
+        ENABLE_ITEM_RENAMING = BUILDER
+                .comment("Enables item renaming using an inc sac/glow inc sac using right click. Works for empty maps, filled maps and nametags.")
+                .define("enableNameTagRenaming", true);
+
+        ENABLE_BEETROOT_SOUP = BUILDER
+                .comment("Enables beetroot soup buff that provides extra staturation duration.")
+                        .define("enableBeetrootSoup",true);
 
         BUILDER.pop();
 

@@ -1,5 +1,8 @@
 package net.starcage.meliorat;
 
+import net.neoforged.neoforge.event.RegisterCommandsEvent;
+import net.starcage.meliorat.common.command.ClearChatCommand;
+import net.starcage.meliorat.network.ModPayloads;
 import net.starcage.meliorat.registry.*;
 import net.neoforged.neoforge.client.event.RegisterMenuScreensEvent;
 import net.starcage.meliorat.common.fletchingtable.FletchingScreen;
@@ -32,6 +35,7 @@ public class Meliorat {
     public Meliorat(IEventBus modEventBus, ModContainer modContainer) {
         // Register the commonSetup method for mod loading
         modEventBus.addListener(this::commonSetup);
+        modEventBus.addListener(ModPayloads::register);
 
         // Register ourselves for server and other game events we are interested in.
         // Do not add this line if there are no @SubscribeEvent-annotated functions in this class, like onServerStarting() below.
@@ -50,6 +54,16 @@ public class Meliorat {
         modContainer.registerConfig(
                 ModConfig.Type.COMMON,
                 MelioratConfig.SPEC
+        );
+    }
+
+    @SubscribeEvent
+    public void registerCommands(
+            RegisterCommandsEvent event
+    ) {
+
+        ClearChatCommand.register(
+                event.getDispatcher()
         );
     }
 
